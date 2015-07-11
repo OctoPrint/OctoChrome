@@ -22,8 +22,12 @@
 
   "content_scripts": [
     {
-      "matches": ["*://*.youmagine.com/*"],
-      "js": ["lib/jquery-2.1.3.min.js", "contentscripts/youmagine.js"]
+      "matches": ["*://*.youmagine.com/*", "*://*.thingiverse.com/*"],
+      "js": ["lib/jquery-2.1.3.min.js", "contentscripts/youmagine.js", "contentscripts/thingiverse.js"]
+    },
+    {
+      "matches": ["*://*.thingiverse.com/*"],
+      "js": ["lib/jquery-2.1.3.min.js", "contentscripts/thingiverse.js"]
     }
   ]
 }

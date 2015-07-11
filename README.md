@@ -4,12 +4,12 @@ OctoChrome extension for Google Chrome
 **WARNING** This is not functional yet, it's only published here to make life for me easier when switching computers ;)
 
 This is going to be a Chrome extension which allows sending STL files from popular repositories such as YouMagine or
-Takerverse to locally available OctoPrint instances. The long term goal is that these instances will be automatically
+Thingiverse to locally available OctoPrint instances. The long term goal is that these instances will be automatically
 discovered and that it will be possible to not only upload the files but also slice and directly print them from
 within the extension.
 
-For now, only uploading an STL file directly from the "Documents" tab of YouMagine is possible, with the OctoPrint instance
-being configured through the extension's options.
+For now, only uploading an STL file directly from the "Documents" tab of YouMagine and the "Files" tab of Thingiverse
+is possible, with the OctoPrint instance being configured through the extension's options.
 
 Installation
 ------------
