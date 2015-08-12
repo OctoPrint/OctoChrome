@@ -1,7 +1,7 @@
 OctoChrome extension for Google Chrome
 ======================================
 
-**WARNING** This is not functional yet, it's only published here to make life for me easier when switching computers ;)
+**WARNING** This is a very early work in progress with not guarantees of functioning properly.
 
 This is going to be a Chrome extension which allows sending STL files from popular repositories such as YouMagine or
 Thingiverse to locally available OctoPrint instances. The long term goal is that these instances will be automatically
@@ -14,9 +14,16 @@ is possible, with the OctoPrint instance being configured through the extension'
 Installation
 ------------
 
-Since this is a heavy WIP and actually only intended for educational purposes for now, the extension needs Chrome's
+Since this is a very early WIP and actually only intended for educational purposes for now, the extension needs Chrome's
 extension developer mode to be active. Checkout the repository, then follow [this guide](https://developer.chrome.com/extensions/getstarted#unpacked)
 on how to get the extension installed from source.
+
+Configuration
+-------------
+
+Navigate to `chrome://extensions`, then click click on the "Options" link of OctoChrome. You'll be led to
+a site where to enter your OctoPrint instance's URL (full URL please, e.g. `http://octopi.local` or `https://192.168.1.23:9090`)
+and the API key to use.
 
 **THERE WILL BE NO SUPPORT FOR NOW. DO NOT USE THIS. BE ALSO ADVISED THAT I DO NOT KNOW WHEN I'LL CONTINUE WORKING ON
 THIS. DON'T EVEN THINK ABOUT ASKING ;)**
