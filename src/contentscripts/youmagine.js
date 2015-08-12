@@ -7,33 +7,36 @@ $(document).ready(function() {
         return url;
     };
 
-    $("article[data-type='document']").each(function(index, item) {
-        var span = $(item).find("span.document-name");
-        if (!span) {
+    $("li.document").each(function(index, item) {
+        var titleDiv = $(item).find("div.title");
+        var informationDiv = $(item).find("div.information");
+        var downloadAnchor = $(item).find("a.download");
+
+        if (!titleDiv || !informationDiv || !downloadAnchor) {
             return;
         }
 
-        var type = $(span).find("span").text();
-        if (type != "STL") {
+        var information = informationDiv.text();
+        if (information.toLowerCase().indexOf("stl ") !== 0) {
             return;
         }
 
-        var name = $(span).find("a").text();
-        var filename = name + ".stl";
+        var title = titleDiv.text();
+        var downloadUrl = absolutifyUrl(downloadAnchor.attr("href"));
 
-        var documentUrl = absolutifyUrl("/documents/" + $(item).data("id") + "/download");
+        var filename = title + ".stl";
 
-        var entry = $('<li class="dropdown-item"></li>').append($('<a href="#" target="_blank"><i class="icon-upload-alt"></i> Send to OctoPrint</a>')
-            .data("url", documentUrl)
+        var entry = $('<a href="#" class="octoprint" title="Send to OctoPrint"><img src="'+chrome.extension.getURL("img/tentacle-20x20.png")+'" style="padding: 0 10px; margin-bottom: -2px"></a>')
+            .data("url", downloadUrl)
             .data("name", filename)
             .click(function(event) {
-                    event.preventDefault();
-                    var downloadLink = $(event.target).data("url");
-                    var filename = $(event.target).data("name");
+                event.preventDefault();
+                var downloadLink = $(event.currentTarget).data("url");
+                var filename = $(event.currentTarget).data("name");
 
-                    chrome.runtime.sendMessage({uploadFile: {name: filename, src: downloadLink}}, function(response) {});
-                })
-        );
-        $(item).find("ul.dropdown-menu").prepend(entry);
+                chrome.runtime.sendMessage({uploadFile: {name: filename, src: downloadLink}}, function(response) {});
+            });
+
+        entry.insertAfter($(item).find("a.download"));
     });
 });

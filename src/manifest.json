@@ -29,5 +29,13 @@
       "matches": ["*://*.thingiverse.com/*"],
       "js": ["lib/jquery-2.1.3.min.js", "contentscripts/thingiverse.js"]
     }
+  ],
+
+  "web_accessible_resources": [
+    "img/tentacle-bw-13x14.png",
+    "img/tentacle-16x16.png",
+    "img/tentacle-20x20.png",
+    "img/tentacle-48x48.png",
+    "img/tentacle-128x128.png"
   ]
 }
